@@ -10,27 +10,33 @@ let round = 0;
 console.log("Enter player name: ");
 const player = prompt("Type in your name:");
 console.log(`Get ready ${player}`);
+alert(`Get ready ${player}`);
 RockPaperScissors();
 
 function RockPaperScissors(){   
     PlayRound();
     DecideRound(round, player_choice, pc_choice);
     if(DecideWinner()==="") RockPaperScissors();
-    else console.log("Winner is: " + DecideWinner());
+    else {
+        console.log("Winner is: " + DecideWinner());
+        alert("Winner is: " + DecideWinner());
+    }
 }
 
 function PlayRound()
 {
-    player_choice = (prompt(`Choose out of: ${choices[0]}, ${choices[1]}, ${choices[2]}`)).toLowerCase();
-    if(!choices.includes(player_choice))InvalidChoice();
+    PlayerChoice();
     pc_choice = choices[Math.floor(Math.random() * choices.length)];
     round++;
 }
 
-function InvalidChoice()
+function PlayerChoice()
 {
-    player_choice = (prompt(`Invalid choice!\nChoose out of: ${choices[0]}, ${choices[1]}, ${choices[2]}`)).toLowerCase();
-    if(!choices.includes(player_choice))InvalidChoice();
+    player_choice = (prompt(`Choose out of: ${choices[0]}, ${choices[1]}, ${choices[2]}`)).toLowerCase();
+    if(!choices.includes(player_choice)){
+        alert(`${player_choice} is an invalid choice!`);
+        PlayerChoice(); 
+    }
 }
 
 function DecideRound(r, p1, p2)
@@ -45,14 +51,15 @@ function DecideRound(r, p1, p2)
 
 function DecideWinner()
 {
-    if (player_wins!==winCondition && pc_wins!==winCondition) return "";
-    else if (player_wins===winCondition) return player;
+    if (player_wins===winCondition) return player;
     else if (pc_wins===winCondition) return "COMPUTER";
+    else return "";
 }
 
 function ConsoleOutput(r, ties , plWins, pcWins)
 {
-console.log(
-`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.
-Round: ${r}. Ties: ${ties}. ${player} wins: ${plWins}. Computer wins: ${pcWins}.`)
+console.log(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.
+Round: ${r}. Ties: ${ties}. ${player} wins: ${plWins}. Computer wins: ${pcWins}.`);
+alert(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.
+Round: ${r}. Ties: ${ties}. ${player} wins: ${plWins}. Computer wins: ${pcWins}.`);
 }
