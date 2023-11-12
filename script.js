@@ -58,8 +58,8 @@ function DecideWinner()
 
 function ConsoleOutput(r, ties , plWins, pcWins)
 {
-console.log(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.
+console.log(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.\n
 Round: ${r}. Ties: ${ties}. ${player} wins: ${plWins}. Computer wins: ${pcWins}.`);
-alert(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.
+alert(`${player} chooses: ${player_choice}. Computer chooses: ${pc_choice}.\n
 Round: ${r}. Ties: ${ties}. ${player} wins: ${plWins}. Computer wins: ${pcWins}.`);
 }
