@@ -8,7 +8,7 @@ let player_choice = "";
 let round = 0;
 
 console.log("Enter player name: ");
-const player = prompt("Type in your name:");
+const player = (prompt("Type in your name:")).trim();
 console.log(`Get ready ${player}`);
 alert(`Get ready ${player}`);
 RockPaperScissors();
@@ -32,7 +32,7 @@ function PlayRound()
 
 function PlayerChoice()
 {
-    player_choice = (prompt(`Choose out of: ${choices[0]}, ${choices[1]}, ${choices[2]}`)).toLowerCase();
+    player_choice = ((prompt(`Choose out of: ${choices[0]}, ${choices[1]}, ${choices[2]}`)).toLowerCase()).trim();
     if(!choices.includes(player_choice)){
         alert(`${player_choice} is an invalid choice!`);
         PlayerChoice(); 
